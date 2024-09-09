@@ -1,5 +1,11 @@
-var acc = document.getElementsByClassName("accordion");
-var i;
+const $ = (element) => {
+  const elements = document.querySelectorAll(element);
+  return elements.length === 1 ? elements[0] : elements;
+};
+
+const acc = document.getElementsByClassName("accordion");
+const toggle = document.getElementById("switch");
+let i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
@@ -22,3 +28,23 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+toggle.addEventListener("change", function (e) {
+  const checkboxValue = e.target.checked;
+  const listTextChange = $(".toggle-change");
+  if (checkboxValue) {
+    $("#body").classList.add("bg-black");
+    $(".form-button").classList.add("toggle-button");
+    $(".header-title_logo").src = "./assets/images/toggle-icon-title.svg";
+    for (let ind = 0; ind < listTextChange.length; ind++) {
+      listTextChange[ind].classList.add("text-light");
+    }
+  } else {
+    $("#body").classList.remove("bg-black");
+    $(".form-button").classList.remove("toggle-button");
+    for (let ind = 0; ind < listTextChange.length; ind++) {
+      listTextChange[ind].classList.remove("text-light");
+    }
+    $(".header-title_logo").src = "./assets/images/icon-title.svg";
+  }
+});

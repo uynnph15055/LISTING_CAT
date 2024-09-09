@@ -1,5 +1,6 @@
 :root {
   --primary-color: #fff;
+  --bg-drak: rgb(33 33 33 / 1) !important;
   --text-black: #000;
   --border-color: #ebebeb;
   --tw-text-opacity: 1;
@@ -64,6 +65,18 @@ body {
   padding: 0;
 }
 
+.bg-light {
+  background-color: var(--primary-color);
+}
+
+.bg-black {
+  background-color: var(--bg-drak);
+}
+
+.text-light {
+  color: var(--primary-color);
+}
+
 p {
   margin: 0;
 }
@@ -90,6 +103,53 @@ p {
     font-size: 30px;
     line-height: normal;
   }
+}
+
+/* From Uiverse.io by cssbuttons-io */
+.toggle-button {
+  align-items: center;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.toggle-button:active,
+.toggle-button:hover {
+  outline: 0;
+}
+
+.toggle-button span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.toggle-button:hover span {
+  background: none;
+}
+
+.toggle-button:active {
+  transform: scale(0.9);
 }
 
 .flash {
@@ -133,6 +193,7 @@ p {
   border-radius: 8px;
   overflow: hidden;
   margin: 0 auto;
+  background-color: var(--primary-color);
 }
 
 .table-custom thead {
@@ -202,7 +263,7 @@ p {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   color: rgb(82 82 91 / 1);
-  font-size: 16px;
+  font-size: 14px;
   line-height: 28px;
 }
 
@@ -219,4 +280,56 @@ p {
   @media screen and (max-width: 768px) {
     font-size: 13px;
   }
+}
+
+/* Toggle */
+.toggle-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.toggle {
+  background-color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.1);
+  line-height: 1;
+}
+
+.input {
+  display: none;
+}
+
+.icon {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  transition: transform 500ms;
+}
+
+.icon--moon {
+  transition-delay: 200ms;
+}
+
+.icon--sun {
+  transform: scale(0);
+}
+
+#switch:checked + .icon--moon {
+  transform: rotate(360deg) scale(0);
+}
+
+#switch:checked ~ .icon--sun {
+  transition-delay: 200ms;
+  transform: scale(1) rotate(360deg);
+}
+
+.w-8 {
+  width: 1.5rem /* 32px */;
 }
