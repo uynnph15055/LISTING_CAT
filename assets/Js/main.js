@@ -3,8 +3,8 @@ const $ = (element) => {
   return elements.length === 1 ? elements[0] : elements;
 };
 
-const acc = document.getElementsByClassName("accordion");
-const toggle = document.getElementById("switch");
+const acc = $(".accordion");
+const toggle = $("#switch");
 let i;
 
 for (i = 0; i < acc.length; i++) {
